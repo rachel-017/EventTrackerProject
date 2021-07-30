@@ -1,0 +1,3 @@
+rootProject.name = 'FightBuddies'
+
+includeFlat 'JPAFighters'
