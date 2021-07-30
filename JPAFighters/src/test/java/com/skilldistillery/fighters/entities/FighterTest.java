@@ -49,4 +49,13 @@ public class FighterTest {
 		assertEquals("Boulder", fighter.getName());
 		assertEquals(1, fighter.getId());
 	}
+	
+	@Test
+	@DisplayName("testing fighter to head torso and legs mapping")
+	void test1() {
+		assertNotNull(fighter);
+		assertEquals("bear", fighter.getHead().getType());
+		assertEquals("lion", fighter.getTorso().getType());
+		assertEquals("bear", fighter.getLegs().getType());
+	}
 }

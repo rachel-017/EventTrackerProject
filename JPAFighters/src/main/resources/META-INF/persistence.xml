@@ -8,6 +8,9 @@
     <!-- list entities here -->
     
     <class>com.skilldistillery.fighters.entities.Fighter</class>
+    <class>com.skilldistillery.fighters.entities.Head</class>
+    <class>com.skilldistillery.fighters.entities.Torso</class>
+    <class>com.skilldistillery.fighters.entities.Legs</class>
    
     
     <!-- end entities here -->
