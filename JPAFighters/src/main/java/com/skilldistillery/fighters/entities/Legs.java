@@ -19,8 +19,6 @@ public class Legs {
 	@Column(name="legs_type")
 	private String type;
 
-	@OneToMany(mappedBy="legs")
-	private List<Fighter> fighters;
 	
 	
 	
@@ -60,13 +58,6 @@ public class Legs {
 	}
 
 	
-	public List<Fighter> getFighters() {
-		return fighters;
-	}
-
-	public void setFighters(List<Fighter> fighters) {
-		this.fighters = fighters;
-	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -84,7 +75,7 @@ public class Legs {
 
 	@Override
 	public String toString() {
-		return "Legs [id=" + id + ", type=" + type + "]";
+		return "Legs type =" + type;
 	}
 
 }

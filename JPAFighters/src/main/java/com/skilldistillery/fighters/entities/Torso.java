@@ -19,9 +19,6 @@ public class Torso {
 	@Column(name="torso_type")
 	private String type;
 
-	@OneToMany(mappedBy="torso")
-	private List<Fighter> fighters;
-	
 	
 	
 	public Torso() {
@@ -52,14 +49,7 @@ public class Torso {
 		this.type = type;
 	}
 
-	public List<Fighter> getFighters() {
-		return fighters;
-	}
-
-	public void setFighters(List<Fighter> fighters) {
-		this.fighters = fighters;
-	}
-
+	
 	
 	
 	@Override
@@ -86,7 +76,7 @@ public class Torso {
 
 	@Override
 	public String toString() {
-		return "Torso [id=" + id + ", type=" + type + "]";
+		return "Torso type = " + type ;
 	}
 
 }

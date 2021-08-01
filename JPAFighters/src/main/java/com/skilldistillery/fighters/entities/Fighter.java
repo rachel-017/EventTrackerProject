@@ -156,8 +156,9 @@ public class Fighter {
 	@Override
 	public String toString() {
 		return "Fighter [id=" + id + ", name=" + name + ", strength=" + strength + ", speed=" + speed
-				+ ", intelligence=" + intelligence + ", health=" + health + ", head=" + head + ", torso=" + torso
-				+ ", legs=" + legs + "]";
+				+ ", intelligence=" + intelligence + ", health=" + health + ", head=" + head.getType() + ", torso="
+				+ torso.getType()
+				+ ", legs=" + legs.getType() + "]";
 	}
 	
 }
