@@ -12,16 +12,12 @@ FightBuddies is an app that allows the user to do all basic CRUD functions on a 
 | Method | URI                | Request Body | Response Body |
 |--------|--------------------|--------------|---------------|
 | GET    | `/api/fighters`      |              | Collection of representations of all _fighter_ resources
-| Method | URI                | Request Body | Response Body |
 |--------|--------------------|--------------|---------------|
 | GET    | `/api/fighters/{id}`      |              | Single representation of a _fighter_ resource
-| Method | URI                | Request Body | Response Body |
 |--------|--------------------|--------------|---------------|
 | POST    | `/api/fighters`      | Fighter             | New representation of a _fighter_ resource
-| Method | URI                | Request Body | Response Body |
 |--------|--------------------|--------------|---------------|
 | POST    | `/api/fighters/{id}`      | Updated Fighter             | Updated representation of a _fighter_ resource
-| Method | URI                | Request Body | Response Body |
 |--------|--------------------|--------------|---------------|
 | DELETE    | `/api/fighters/{id}`      |             |               |
 
