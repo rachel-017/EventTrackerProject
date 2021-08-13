@@ -2,6 +2,9 @@ package com.skilldistillery.fighters.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,13 +38,35 @@ public class FighterController {
 	}
 	
 	@PostMapping("fighters")
-	public Fighter createFighter(@RequestBody Fighter fighter){
-		return fightSrv.createFighter(fighter);
+	public Fighter createFighter(@RequestBody Fighter fighter, HttpServletRequest req,
+			HttpServletResponse res){
+		try {
+			fighter = fightSrv.createFighter(fighter);
+			res.setStatus(201);
+			StringBuffer url = req.getRequestURL();
+			url.append("/").append(fighter.getId());
+			res.setHeader("Location", url.toString());
+		} catch (Exception e) {
+			res.setStatus(400);
+		}
+		return fighter;
 	}
 
 	@PostMapping("fighters/{fid}")
-	public Fighter updateFighter(@PathVariable Integer fid, @RequestBody Fighter fighter){
-		fighter = fightSrv.updateFighter(fid, fighter);
+	public Fighter updateFighter(@PathVariable Integer fid, @RequestBody Fighter fighter,
+			HttpServletResponse res) {
+		try {
+			fighter = fightSrv.updateFighter(fid, fighter);
+			if (fighter == null) {
+				res.setStatus(404);
+			}
+			else {
+				res.setStatus(200);
+			}
+		} catch (Exception e) {
+			res.setStatus(400);
+			fighter = null;
+		}
 		return fighter;
 	}
 	

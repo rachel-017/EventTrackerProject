@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fight Buddies</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+</head>
+<body>
+    <h1>Fight Buddies!</h1>
+<table id='fighterListTable'>
+    <thead>
+        <tr>
+          <th>Fighter Name</th>
+          <th>Strength Lvl</th>
+          <th>Speed Lvl</th>
+          <th>Intelligence Lvl</th>
+          <th>Max Health</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+          
+      </tbody>
+</table>
+<br>
+
+<h2>Create Your Own Fighter!</h2>
+
+<form name='fighterForm' action="api/fighters" class='ajax' method="POST">
+    <p>Fighter Name: <input type="text" name="name" placeholder="Ajax">
+      </p>
+      <p>Which of these is your fighter best at?
+      Strength<input type="radio" name="stat" value="strength">
+      Speed<input type="radio" name="stat" value="speed">
+      Intelligence<input type="radio" name="stat" value="intelligence">
+    </p>
+      <p>Head type <select name="head">
+        <option value=1>Lion</option>
+        <option value=2>Eagle</option>
+        <option value=3>Wolf</option>
+        <option value=4>Bear</option>
+        <option value=5>Octopus</option>
+      </select></p>
+
+      <p>Torso type <select name="torso">
+        <option value=1>Lion</option>
+        <option value=2>Eagle</option>
+        <option value=3>Wolf</option>
+        <option value=4>Bear</option>
+        <option value=5>Octopus</option>
+      </select></p>
+
+      <p>Leg type <select name="legs">
+        <option value=1>Lion</option>
+        <option value=2>Eagle</option>
+        <option value=3>Wolf</option>
+        <option value=4>Bear</option>
+        <option value=5>Octopus</option>
+      </select></p>
+      <br />
+      <input name='add' type="submit" value="submit">
+</form>
+
+<div id ='fighterData'></div>
+
+</body>
+</html>

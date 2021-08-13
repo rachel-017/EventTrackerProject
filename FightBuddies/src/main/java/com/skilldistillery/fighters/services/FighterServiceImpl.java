@@ -34,13 +34,9 @@ public class FighterServiceImpl implements FighterService{
 	
 	
 	@Override
-	public Fighter createFighter(Fighter film) {
-//		if (film.getLanguage() == null) {
-//			Language lang = new Language();
-//			lang.setId(1);
-//			film.setLanguage(lang);
-//		}
-		return repo.saveAndFlush(film);
+	public Fighter createFighter(Fighter fighter) {
+		
+		return repo.saveAndFlush(fighter);
 	}
 	
 	
