@@ -1,5 +1,6 @@
 package com.skilldistillery.fighters.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,9 @@ public class FighterServiceImpl implements FighterService{
 	
 	@Override
 	public List<Fighter> allFighters() {
-		return repo.findAll();
+		List<Fighter> fighters = new ArrayList<Fighter>();
+		fighters.addAll(repo.findAll());
+		return fighters;
 	}
 	
 	
@@ -42,34 +45,15 @@ public class FighterServiceImpl implements FighterService{
 	
 	@Override
 	public Fighter updateFighter(int fid, Fighter fighter) {
-		Optional<Fighter> fighterOpt = repo.findById(fid);
-		if (fighterOpt.isPresent()) {
-			Fighter managed = fighterOpt.get();
-			managed.setHead(fighter.getHead());
-			managed.setHealth(fighter.getHealth());
-			managed.setLegs(fighter.getLegs());
-			managed.setTorso(fighter.getTorso());
-			managed.setName(fighter.getName());
-			managed.setIntelligence(fighter.getIntelligence());
-			managed.setSpeed(fighter.getSpeed());
-			managed.setStrength(fighter.getStrength());
-//			if (fighter.getLanguage() != null) {
-//				managed.setLanguage(fighter.getLanguage());
-//			}
-			repo.saveAndFlush(managed);
-			return managed;
-		}
-		return null;
+		
+		fighter.setId(fid);
+		return repo.saveAndFlush(fighter);
 	}
 	
 	
 	@Override
 	public boolean deleteFighter(int fid) {
-		boolean deleted = false;
-		if (repo.existsById(fid)) {
-			repo.deleteById(fid);
-			deleted = true;
-		}
-		return deleted;
+		repo.deleteById(fid);
+		return !repo.findById(fid).isPresent();
 	}
 }

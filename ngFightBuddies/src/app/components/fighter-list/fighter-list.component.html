@@ -1,0 +1,55 @@
+<!-- <ul>
+  <li *ngFor="let fighter of fighters">{{fighter | json}}</li>
+</ul> -->
+<h1>{{title}} </h1>
+
+
+<div>
+<table *ngIf="!selected">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Health</th>
+      <th>Strength</th>
+      <th>Speed</th>
+      <th>Intelligence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fighter of fighters">
+      <td (click)="displayFighter(fighter)">{{fighter.name}}</td>
+      <td>{{fighter.health}}</td>
+      <td>{{fighter.strength}}</td>
+      <td>{{fighter.speed}}</td>
+      <td>{{fighter.intelligence}}</td>
+      <td><button (click)="deleteFighter(fighter.id)">X</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<form *ngIf="!selected">
+  <input type="text" name="name" [(ngModel)]="newFighter.name">
+  <input type="submit" name="submit" (click)="addFighter()">
+</form>
+
+<div id='fighterDetails' *ngIf="selected && !editFighter  ">
+  <p>{{selected.id}}</p>
+  <p>{{selected.name}}</p>
+  <p>{{selected.strength}}</p>
+  <p>{{selected.speed}}</p>
+  <p>{{selected.intelligence}}</p>
+  <p>{{selected.health}}</p>
+  <button (click)="displayTable()">Back</button>
+  <button (click)="setEditFighter()">Edit</button>
+</div>
+<br><br>
+<form *ngIf="editFighter">
+  Name: <input type="text" name="Name" [(ngModel)]="editFighter.name"><br>
+  Strength: <input type="text" name="Strength" [(ngModel)]="editFighter.strength"><br>
+  Speed: <input type="text" name="Speed" [(ngModel)]="editFighter.speed"><br>
+  Intelligence: <input type="text" name="Intelligence" [(ngModel)]="editFighter.intelligence"><br>
+  Health: <input type="text" name="Health" [(ngModel)]="editFighter.health"><br>
+  <input type="submit" name="Save" value="Save" (click)=updateFighter(editFighter)>
+  <input type="submit" name="Cancel" value="Cancel" (click)="editFighter = null">
+
+</form>
