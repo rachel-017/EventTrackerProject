@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { Fighter } from '../models/fighter';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FightService {
 
-  private baseUrl = 'http://localhost:8084/';
-  private url = this.baseUrl + 'api/fighters';
+  // private baseUrl = 'http://localhost:8084/';
+  private url = environment.baseUrl + 'api/fighters';
 
   httpOptions = {
     headers: new HttpHeaders({
